@@ -1,26 +1,13 @@
-import os
-
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
-from sqlmodel import create_engine, SQLModel
+from models.db import create_db_and_tables
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
-database_url = os.getenv("POSTGRES_URL", "sqlite:///database.db")
-
-engine = create_engine(database_url)
-
-
-def create_db_and_tables():
-    SQLModel.metadata.create_all(engine)
-
+create_db_and_tables()
 
 app = FastAPI(
     title="Fictionary",
-    description="Fictionary",
+    description="Fictionary API",
     version="1.0.0",
 )
 

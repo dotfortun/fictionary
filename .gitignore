@@ -11,4 +11,4 @@ venv/
 ENV/ 
 env.bak/ 
 venv.bak/ 
-database.db
+database.sqlite3
