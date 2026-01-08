@@ -1,4 +1,5 @@
 from typing import List, Optional
+from pydantic import BaseModel
 from sqlmodel import Field, SQLModel
 
 class MediaTypeBase(SQLModel):
@@ -15,23 +16,24 @@ class MediaType(MediaTypeBase, table=True):
     """
     id: int | None = Field(default=None, primary_key=True)
     name: str
-    cover_img: Optional[str]
+    cover_img: Optional[str] = None
 
 
 class MediaCreate(MediaTypeBase):
     name: str
-    cover_img: Optional[str]
+    cover_img: Optional[str] = None
 
 
 class MediaRead(MediaTypeBase):
+    id: int
     name: str
-    cover_img: Optional[str]
+    cover_img: Optional[str] = None
 
 
 class MediaUpdate(MediaTypeBase):
-    name: Optional[str]
-    cover_img: Optional[str]
+    name: Optional[str] = None
+    cover_img: Optional[str] = None
 
 
-class MediaList:
-    types: List[MediaType]
+class MediaList(BaseModel):
+    types: List["MediaRead"]
