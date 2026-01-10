@@ -12,6 +12,14 @@ from models.media_type import (
     MediaList,
 )
 
+from models.universe import (
+    Universe,
+    UniverseCreate,
+    UniverseRead,
+    UniverseUpdate,
+    UniverseList,
+)
+
 __all__ = [
     "engine",
     "create_db_and_tables",
@@ -22,4 +30,10 @@ __all__ = [
     "MediaRead",
     "MediaUpdate",
     "MediaList",
+
+    "Universe",
+    "UniverseCreate",
+    "UniverseRead",
+    "UniverseUpdate",
+    "UniverseList",
 ]

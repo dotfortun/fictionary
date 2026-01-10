@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from models import create_db_and_tables
 from routes.media_type import media_type
+from routes.universe import universe
 
 create_db_and_tables()
 
@@ -13,7 +14,8 @@ app = FastAPI(
     version="1.0.0",
 )
 
-app.include_router(media_type)
+app.include_router(media_type, tags=["Media Type"])
+app.include_router(universe, tags=["Universe"])
 
 app.add_middleware(
     CORSMiddleware,
