@@ -20,6 +20,14 @@ from models.character import (
     CharacterList,
 )
 
+from models.universe import (
+    Universe,
+    UniverseCreate,
+    UniverseRead,
+    UniverseUpdate,
+    UniverseList,
+)
+
 __all__ = [
     "engine",
     "create_db_and_tables",
@@ -36,4 +44,10 @@ __all__ = [
     "CharacterRead",
     "CharacterUpdate",
     "CharacterList",
+  
+    "Universe",
+    "UniverseCreate",
+    "UniverseRead",
+    "UniverseUpdate",
+    "UniverseList",
 ]
