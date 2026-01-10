@@ -1,4 +1,4 @@
-# FastAPI + Vercel
+# Fictionary
 
 This example shows how to use FastAPI on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
 
