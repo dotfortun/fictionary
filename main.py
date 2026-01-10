@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
+from scalar_fastapi import get_scalar_api_reference
 
 from models import create_db_and_tables
 from routes.media_type import media_type
@@ -14,6 +15,7 @@ app = FastAPI(
     title="Fictionary",
     description="Fictionary API",
     version="1.0.0",
+    docs_url="/swagger",
 )
 
 app.include_router(character, tags=["Character"])
@@ -37,3 +39,13 @@ app.add_middleware(
 def read_root():
     with open("./index.html", "rt") as htmlfile:
         return htmlfile.read()
+
+
+@app.get("/docs", include_in_schema=False)
+async def scalar_html():
+    return get_scalar_api_reference(
+        # Your OpenAPI document
+        openapi_url=app.openapi_url,
+        # Avoid CORS issues (optional)
+        scalar_proxy_url="https://proxy.scalar.com",
+    )
