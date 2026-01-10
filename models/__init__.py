@@ -12,6 +12,14 @@ from models.media_type import (
     MediaList,
 )
 
+from models.character import (
+    Character,
+    CharacterCreate,
+    CharacterRead,
+    CharacterUpdate,
+    CharacterList,
+)
+
 from models.universe import (
     Universe,
     UniverseCreate,
@@ -31,6 +39,12 @@ __all__ = [
     "MediaUpdate",
     "MediaList",
 
+    "Character",
+    "CharacterCreate",
+    "CharacterRead",
+    "CharacterUpdate",
+    "CharacterList",
+  
     "Universe",
     "UniverseCreate",
     "UniverseRead",
