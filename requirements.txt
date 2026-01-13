@@ -3,3 +3,5 @@ sqlmodel
 python-dotenv
 psycopg2-binary
 scalar-fastapi
+pyjwt
+pwdlib

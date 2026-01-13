@@ -1,14 +1,25 @@
+import os
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 from scalar_fastapi import get_scalar_api_reference
 
 from models import create_db_and_tables
+from models import (
+    create_db_and_tables, User, TokenData, Token
+)
 
 from routes.media_type import media_type
 from routes.character import character
 from routes.universe import universe
 from routes.creator import creator
+
+SECRET_KEY = os.getenv(
+    "SECRET_KEY", "Don't let this use the default secret please."
+)
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = 30
+
 
 create_db_and_tables()
 
