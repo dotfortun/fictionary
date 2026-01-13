@@ -74,7 +74,7 @@ def update_media_type(
         select(Character).where(Character.id == id)
     ).first()
 
-    if not character:
+    if not db_character:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"MediaType #{id} doesn't exist."

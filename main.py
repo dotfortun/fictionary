@@ -4,10 +4,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from scalar_fastapi import get_scalar_api_reference
 
 from models import create_db_and_tables
-from routes.media_type import media_type
 
+from routes.media_type import media_type
 from routes.character import character
 from routes.universe import universe
+from routes.creator import creator
 
 create_db_and_tables()
 
@@ -21,6 +22,8 @@ app = FastAPI(
 app.include_router(character, tags=["Character"])
 app.include_router(media_type, tags=["Media Type"])
 app.include_router(universe, tags=["Universe"])
+app.include_router(creator, tags=["Creator"])
+
 
 app.add_middleware(
     CORSMiddleware,

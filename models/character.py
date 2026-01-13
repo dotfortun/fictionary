@@ -15,6 +15,7 @@ class Character(CharacterBase, table=True):
     Database model
     """
     id: int | None = Field(default=None, primary_key=True)
+    name: str
     portrait: Optional[str] = None
     description: Optional[str] = None
 
@@ -25,6 +26,7 @@ class CharacterCreate(CharacterBase):
 
 class CharacterRead(CharacterBase):
     id: int
+    name: str
     portrait: Optional[str] = None
     description: Optional[str] = None
 
