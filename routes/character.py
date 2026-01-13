@@ -65,7 +65,7 @@ def read_character(
     "/{id}",
     response_model=CharacterRead
 )
-def update_media_type(
+def update_character(
     id: Annotated[int, Path(title="id")],
     req_character: CharacterUpdate,
     session: Session = Depends(get_session)

@@ -5,11 +5,13 @@ from sqlmodel import Field, SQLModel
 from fastapi.security import OAuth2PasswordBearer
 from pwdlib import PasswordHash
 
+from models.mixins import TimeStampMixin
+
 password_hash = PasswordHash.recommended()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
-class UserBase(SQLModel):
+class UserBase(SQLModel, TimeStampMixin):
     """
     Template model
     """
@@ -38,3 +40,15 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     username: str | None = None
+
+
+def verify_password(plain_password, hashed_password):
+    return password_hash.verify(plain_password, hashed_password)
+
+
+def get_password_hash(password):
+    return password_hash.hash(password)
+
+
+def get_user(db, username: str):
+    pass

@@ -40,6 +40,7 @@ from models.user import (
     User, Token, TokenData
 )
 
+
 __all__ = [
     "engine",
     "create_db_and_tables",

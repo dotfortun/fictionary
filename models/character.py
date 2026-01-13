@@ -2,6 +2,8 @@ from typing import List, Optional
 from pydantic import BaseModel
 from sqlmodel import Field, SQLModel
 
+from models.mixins import TimeStampMixin
+
 class CharacterBase(SQLModel):
     """
     Template model
@@ -10,7 +12,7 @@ class CharacterBase(SQLModel):
     portrait: str = Field(default=None)
     description: str = Field(default=None)
 
-class Character(CharacterBase, table=True):
+class Character(CharacterBase, TimeStampMixin, table=True):
     """
     Database model
     """
@@ -24,7 +26,7 @@ class CharacterCreate(CharacterBase):
     portrait: Optional[str] = None
     description: Optional[str] = None
 
-class CharacterRead(CharacterBase):
+class CharacterRead(CharacterBase, TimeStampMixin):
     id: int
     name: str
     portrait: Optional[str] = None

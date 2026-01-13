@@ -61,5 +61,5 @@ async def scalar_html():
         # Your OpenAPI document
         openapi_url=app.openapi_url,
         # Avoid CORS issues (optional)
-        scalar_proxy_url="https://proxy.scalar.com",
+        # scalar_proxy_url="https://proxy.scalar.com",
     )
